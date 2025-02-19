@@ -5,6 +5,21 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object, string } from 'yup';
 import { useDispatch } from "react-redux";
+import LoginQuery__handler from "../../../ReactQuery/LoginComponent";
+
+const LoginComponent = () => {
+
+    const { mutate } = LoginQuery__handler()
+
+    const Submited = (data) => {
+
+        mutate(data, {
+            onSuccess: (Reference) => {
+                console.log(Reference.status)
+            }
+        })
+
+    }
 
 const theme = createTheme({
     components: {
@@ -34,12 +49,7 @@ let userSchema = object({
     email: string().required('ورود این مقادیر الزامیست')
 });
 
-Submited = () => {
-    const storedUser = {'mmd' , 'jnjkn'}
-        useDispatch(loginUser(storedUser))
-}
 
-const LoginComponent = () => {
     const { handleSubmit, control, formState: { errors } } = useForm({
         resolver: yupResolver(userSchema),
         defaultValues: {
@@ -54,7 +64,7 @@ const LoginComponent = () => {
                 <div className="circle"></div>
                 <Grid container sx={{ width: '80%', height: '20rem', mx: 'auto', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(30px)', border: '#fff solid 4px', borderRadius: '2rem', overflow: 'hidden' }}>
                     <Grid item xs={10} sm={8}>
-                        <form style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} onSubmit={handleSubmit(d => console.log(d))}>
+                        <form style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} onSubmit={handleSubmit(Submited)}>
                             <InputLabel>ایمیل</InputLabel>
                             <Controller
                                 name="email"

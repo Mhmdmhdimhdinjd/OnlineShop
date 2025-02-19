@@ -28,6 +28,7 @@
     padding-left: 1.5rem;
     width: 50%;
     outline: 0;
+    font-family: gandom;
 }
 
 .login__input::placeholder {
