@@ -60,8 +60,9 @@ let userSchema = object({
 
     return (
         <ThemeProvider theme={theme}>
-            <Box sx={{ pt: 16, maxWidth: '94rem', width: '100%', height: '100vh', display: 'flex', position: 'relative' }}>
+            <Box sx={{ pb: 16, maxWidth: '94rem', width: '100%', position: 'relative' }}>
                 <div className="circle"></div>
+                <Typography fontFamily={'gandom'} color="white" fontSize={32} textAlign={'center'} my={6}>ورودبه آنلاین شاپ</Typography>
                 <Grid container sx={{ width: '80%', height: '20rem', mx: 'auto', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(30px)', border: '#fff solid 4px', borderRadius: '2rem', overflow: 'hidden' }}>
                     <Grid item xs={10} sm={8}>
                         <form style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} onSubmit={handleSubmit(Submited)}>

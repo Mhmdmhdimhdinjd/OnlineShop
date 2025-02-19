@@ -6,6 +6,7 @@ import { Container } from '@mui/material';
 import Navbar from './Components/Navbar/Index';
 import LoginComponent from './Components/Login/Index';
 import store from './redux/store'
+import Footer from './Components/Footer';
 
 
 const App = () => {
@@ -20,6 +21,8 @@ const App = () => {
         <LoginComponent />
 
       </Container>
+      
+      <Footer/>
 
     </Provider>
   );
