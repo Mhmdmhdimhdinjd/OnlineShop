@@ -4,7 +4,7 @@ import { useMutation } from "react-query"
 function LoginQuery__handler ()  {
 
 
-    const { mutate , } = useMutation({
+    const { mutate ,isLoading } = useMutation({
         mutationKey:'login',
         mutationFn:(data) =>{
             return axios.post('https://jsonplaceholder.typicode.com/posts', data)
@@ -13,7 +13,7 @@ function LoginQuery__handler ()  {
     })
 
 
-    return {mutate} 
+    return {mutate , isLoading} 
 }
 
 export default LoginQuery__handler

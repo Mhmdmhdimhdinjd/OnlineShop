@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputBase , AppBar, Box, Toolbar, Typography, Button, IconButton, Tooltip, Avatar, styled, alpha } from '@mui/material';
 import { Menu as MenuIcon, ShoppingCartOutlined as ShoppingCartOutlinedIcon, SearchOutlined as SearchOutlinedIcon , LoginOutlined as LoginOutlinedIcon} from '@mui/icons-material';
-
+import brandFullHorizontal from '../../assets/images/Negar_1740564017759.png'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -95,7 +95,7 @@ function NavBar() {
               />
             </Search>
 
-            <img src='https://www.digikala.com/brand/full-horizontal.svg' alt="Logo" style={{ maxWidth: '100px', margin: '0 0 0 1rem' }} />
+            <img src={brandFullHorizontal} alt="Logo" style={{ maxWidth: '100px', margin: '0 0 0 1rem' }} />
 
           </Box >
 
