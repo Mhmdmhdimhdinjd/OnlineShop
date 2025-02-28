@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import UseInfiniteTodos from "../../ReactQuery/ProductListHandler";
+import { CircularProgress } from "@mui/material";
 
 
 
@@ -14,25 +15,17 @@ const EntierHandler = () => {
         const observer = new IntersectionObserver(
             entries => {
                 if (entries[0].isIntersecting && hasNextPage) {
-                    const intervalId = setInterval(() => {
-                        if (entries[0].isIntersecting && hasNextPage) {
-                            fetchNextPage();
-                        } else {
-                            clearInterval(intervalId);
-                        }
-                    }, 1000); // عملیات را هر ثانیه یک بار تکرار می‌کند
+                    fetchNextPage();
                 }
             },
             {
                 threshold: 0.0000000001
             }
         );
-
         const currentTarget = loadingTarget.current;
         if (currentTarget) {
             observer.observe(currentTarget);
         }
-
         return () => {
             if (currentTarget) {
                 observer.unobserve(currentTarget);
@@ -42,8 +35,8 @@ const EntierHandler = () => {
 
     return (
         <>
-            <div style={{ height: '10px', width: '1rem', backgroundColor: 'red' }} ref={loadingTarget}>
-                {isFetchingNextPage && <p>Loading more...</p>}
+            <div style={{ height: 'fitContent', width: 'fitContent',margin:'auto'}} ref={loadingTarget}>
+                {isFetchingNextPage && <CircularProgress style={{display:"block" , margin:'auto'}}/>}
             </div>
 
         </>

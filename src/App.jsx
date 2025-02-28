@@ -8,7 +8,8 @@ import LoginComponent from './Components/Login/Index';
 import store from './redux/store'
 import Footer from './Components/Footer';
 import Intro from './Components/Inro/introcontainer'
-// import {Quer}
+import ProductShowcase from './Components/productslist/ProductShowcase';
+
 
 const App = () => {
 
@@ -21,13 +22,13 @@ const App = () => {
 
         {/* <LoginComponent /> */}
 
-        <Intro/>
+        <Intro />
 
-
+        <ProductShowcase />
 
       </Container>
-      
-      <Footer/>
+
+      <Footer />
 
     </Provider>
   );
