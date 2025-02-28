@@ -78,9 +78,6 @@ const ProductSlider = () => {
 
         <>
 
-            <Button onClick={() => { fetchNextPage() }}>click here</Button>
-
-
             <Swiper
                 slidesPerView={'auto'}
                 spaceBetween={10}

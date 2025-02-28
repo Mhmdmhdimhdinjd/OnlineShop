@@ -6,7 +6,6 @@ import { Container } from '@mui/material';
 import Navbar from './Components/Navbar/Index';
 import LoginComponent from './Components/Login/Index';
 import store from './redux/store'
-import Footer from './Components/Footer';
 import Intro from './Components/Inro/introcontainer'
 import ProductShowcase from './Components/productslist/ProductShowcase';
 
@@ -28,7 +27,6 @@ const App = () => {
 
       </Container>
 
-      <Footer />
 
     </Provider>
   );

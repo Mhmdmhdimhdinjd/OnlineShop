@@ -60,7 +60,7 @@ const WhiteButton = styled(Button)(() => ({
 
 function NavBar() {
   return (
-    <Box sx={{ flexGrow: 1, borderBottom: '2px solid black', backdropFilter:'blur(40px)' , bgcolor:'#ffffff90' }}>
+    <Box sx={{ flexGrow: 1, borderBottom: '2px solid black', backdropFilter:'blur(40px)' , bgcolor:'#ffffff90', position:'sticky', top:0 , zIndex:1000 }}>
       <AppBar position="static" color='white' elevation={0}>
         <Toolbar>
 
