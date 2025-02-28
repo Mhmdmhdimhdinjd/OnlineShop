@@ -35,8 +35,8 @@ const EntierHandler = () => {
 
     return (
         <>
-            <div style={{ height: 'fitContent', width: 'fitContent',margin:'auto'}} ref={loadingTarget}>
-                {isFetchingNextPage && <CircularProgress style={{display:"block" , margin:'auto'}}/>}
+            <div style={{height:'1rem',width:'1rem'}} ref={loadingTarget}>
+                {isFetchingNextPage && <CircularProgress />}
             </div>
 
         </>
