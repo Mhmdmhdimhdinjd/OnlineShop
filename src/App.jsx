@@ -13,6 +13,7 @@ import Slider from './Components/Slider/Slider'
 import Home from './pages/Home/index'
 import Products from './pages/Products/index';
 import Notfound from './pages/Notfound/Notfound';
+import Shoppingbasket from './pages/Shoppingbasket/ShoppingBasket';
 
 const App = () => {
 
@@ -52,6 +53,8 @@ const App = () => {
           <Route path='/onlineshop-nini/Home' element={<Home />} />
 
           <Route path="/onlineshop-nini/Products" element={<Products />} />
+
+          <Route path="/onlineshop-nini/Shoppingbasket" element={<Shoppingbasket />} />
 
           <Route path="/onlineshop-nini/*" element={<Notfound />} />
 

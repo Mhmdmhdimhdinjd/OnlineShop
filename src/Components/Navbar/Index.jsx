@@ -2,6 +2,8 @@ import React from 'react';
 import { InputBase , AppBar, Box, Toolbar, Typography, Button, IconButton, Tooltip, Avatar, styled, alpha } from '@mui/material';
 import { Menu as MenuIcon, ShoppingCartOutlined as ShoppingCartOutlinedIcon, SearchOutlined as SearchOutlinedIcon , LoginOutlined as LoginOutlinedIcon} from '@mui/icons-material';
 import brandFullHorizontal from '../../assets/images/Negar_1740564017759.png'
+import { useNavigate } from 'react-router-dom';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -58,7 +60,11 @@ const WhiteButton = styled(Button)(() => ({
   },
 }));
 
+
 function NavBar() {
+
+  const navigate = useNavigate()
+
   return (
     <Box sx={{ flexGrow: 1, borderBottom: '2px solid black', backdropFilter:'blur(40px)' , bgcolor:'#ffffff90', position:'sticky', top:0 , zIndex:1000 }}>
       <AppBar position="static" color='white' elevation={0}>
@@ -71,6 +77,7 @@ function NavBar() {
               color="inherit"
               aria-label="shopping Basket"
               sx={{ mr: 2 }}
+              onClick={() => navigate("/onlineshop-nini/Shoppingbasket")}
             >
               <ShoppingCartOutlinedIcon />
             </IconButton>
