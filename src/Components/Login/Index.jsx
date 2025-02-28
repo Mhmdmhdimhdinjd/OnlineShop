@@ -18,7 +18,7 @@ const LoginComponent = () => {
 
         mutate(data, {
             onSuccess: (Reference) => {
-                if (Reference.status === 201) {
+                if (Reference.status === 200) {
                     console.log('ُLogin successed')
                 }
             },

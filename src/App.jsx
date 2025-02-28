@@ -7,7 +7,8 @@ import Navbar from './Components/Navbar/Index';
 import LoginComponent from './Components/Login/Index';
 import store from './redux/store'
 import Footer from './Components/Footer';
-
+import Intro from './Components/Inro/introcontainer'
+// import {Quer}
 
 const App = () => {
 
@@ -18,7 +19,11 @@ const App = () => {
 
       <Container>
 
-        <LoginComponent />
+        {/* <LoginComponent /> */}
+
+        <Intro/>
+
+
 
       </Container>
       
