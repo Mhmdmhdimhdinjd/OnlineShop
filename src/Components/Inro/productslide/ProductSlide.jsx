@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button, Card, CardMedia, CardContent, Typography, Box } from '@mui/material';
 import { addItem } from '/src/redux/reducers/CartReducer';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,7 @@ const ProductSlide = ({ product }) => {
 
     const [added, setAdded] = useState(false)
 
-    // const logeduser = useSelector((state) => state.auth.logeduser);
+    const logeduser = useSelector((state) => state.auth.logeduser);
 
     const dispatch = useDispatch();
 
@@ -48,16 +48,16 @@ const ProductSlide = ({ product }) => {
                 <CardContent
                     sx={{ px: 2, py: 2, flex: '1 0 auto', height: 140 }}>
 
-                    {/* <Link sx={{ textDecoration: 'none', color: 'inherit' }} to={`/onlineshop-nini/product/${product.id}`}> */}
+                    <Link sx={{ textDecoration: 'none', color: 'inherit' }} to={`/onlineshop-nini/product/${product.id}`}>
 
-                        <Typography variant='p' component="div" sx={{ fontWeight: 'bold', mb: 1, color: 'black' }}>
+                    <Typography variant='p' component="div" sx={{ fontWeight: 'bold', mb: 1, color: 'black' }}>
 
-                            {product.title.split(' ').length > 6 ?
-                                `${product.title.split(' ').slice(0, 6).join(' ')}...` :
-                                product.title}
+                        {product.title.split(' ').length > 6 ?
+                            `${product.title.split(' ').slice(0, 6).join(' ')}...` :
+                            product.title}
 
-                        </Typography>
-                    {/* </Link> */}
+                    </Typography>
+                    </Link>
                 </CardContent>
 
 
@@ -72,11 +72,9 @@ const ProductSlide = ({ product }) => {
                         1500000
                     </Typography>
 
-                    <Button variant="contained"  sx={{ borderRadius: 0, fontFamily: 'gandom', width: '100%' }} >
+                    <Button variant="contained" color={logeduser ? (added ? "success" : "primary") : 'error'} sx={{ borderRadius: 0, fontFamily: 'gandom', width: '100%' }} onClick={logeduser && (() => handleAddToCart(product))} >
 
-                        {/* {logeduser ? (added ? "به سبد خرید افزوده شد" : "افزودن به سبد خرید") : 'برای خرید به حساب خود وارد شوید'} */}
-
-                        jknkjhk
+                        {logeduser ? (added ? "به سبد خرید افزوده شد" : "افزودن به سبد خرید") : 'برای خرید به حساب خود وارد شوید'}
 
                     </Button>
 

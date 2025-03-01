@@ -1,23 +1,23 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button, Card, CardContent, CardMedia, Typography } from '@mui/material';
-// import { useDispatch , useSelector} from 'react-redux';
-// import { addItem } from '/src/redux/reducers/CartReducer';
+import { useDispatch , useSelector} from 'react-redux';
+import { addItem } from '/src/redux/reducers/CartReducer';
 import productImg from '../../assets/images/برنج نی نی 04.png'
 
 
 
 const Product = ({ product }) => {
 
-    // const [added, setAdded] = useState(false)
+    const [added, setAdded] = useState(false)
 
-    // const logeduser = useSelector((state) => state.auth.logeduser);
+    const logeduser = useSelector((state) => state.auth.logeduser);
 
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const handleAddToCart = (product) => {
 
-        // dispatch(addItem(product));
+        dispatch(addItem(product));
 
         setAdded(true);
         setTimeout(() => {
@@ -48,11 +48,11 @@ const Product = ({ product }) => {
             <CardContent
                 sx={{ px: 2, py: 2, display: 'flex', flexDirection: 'column' }}>
 
-                {/* <Link sx={{ textDecoration: 'none', color: 'inherit' }} to={`/onlineshop-nini/product/${product.id}`}> */}
+                <Link sx={{ textDecoration: 'none', color: 'inherit' }} to={`/onlineshop-nini/product/${product.id}`}>
 
                     <Typography variant='p' component="div" sx={{ fontWeight: 'bold', mb: 1, textDecoration: 'none', color: 'black' }}>{product.title}</Typography>
 
-                {/* </Link> */}
+                </Link>
 
             </CardContent>
 
@@ -65,19 +65,13 @@ const Product = ({ product }) => {
                 </Typography>
 
 
-                {/* <Button variant="contained" color={logeduser ? (added ? "success" : "primary") : 'error'} sx={{ borderRadius: 0, fontFamily: 'gandom', width: '100%' }} onClick={logeduser && (() => handleAddToCart(product))} >
+                <Button variant="contained" color={logeduser ? (added ? "success" : "primary") : 'error'} sx={{ borderRadius: 0, fontFamily: 'gandom', width: '100%' }} onClick={logeduser && (() => handleAddToCart(product))} >
 
                     {logeduser ? (added ? "به سبد خرید افزوده شد" : "افزودن به سبد خرید") : 'برای خرید به حساب خود وارد شوید'}
 
-                </Button> */}
-
-                <Button variant="contained" sx={{ borderRadius: 0, fontFamily: 'gandom', width: '100%' }} >
-
-                    {/* {logeduser ? (added ? "به سبد خرید افزوده شد" : "افزودن به سبد خرید") : 'برای خرید به حساب خود وارد شوید'} */}
-
-                    jknkjhk
-
                 </Button>
+
+                
 
 
             </div>
