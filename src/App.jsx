@@ -17,6 +17,8 @@ import Shoppingbasket from './pages/Shoppingbasket/ShoppingBasket';
 import PrivateRoute from './navigation/PrivateRoute';
 import Profile from './pages/profile/Profile';
 import ProductDetails from './pages/productdetail/ProductDetails';
+import AddProduct from './pages/AddProduct/AddProduct';
+
 
 const App = () => {
 
@@ -62,6 +64,8 @@ const App = () => {
           <Route path="/onlineshop-nini/product/:id" element={<ProductDetails />}/>
 
           <Route path="/onlineshop-nini/Shoppingbasket" element={<PrivateRoute><Shoppingbasket /></PrivateRoute>} />
+
+          <Route path='/onlineshop-nini/add-product' element={<AddProduct/>}/>
 
           <Route path="/onlineshop-nini/*" element={<Notfound />} />
 
