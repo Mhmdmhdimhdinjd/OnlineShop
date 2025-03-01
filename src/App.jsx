@@ -4,7 +4,7 @@ import './App.css';
 import { Provider } from "react-redux";
 import { Container } from '@mui/material';
 import Navbar from './Components/Navbar/Index';
-import LoginComponent from './Components/Login/Index';
+import LoginComponent from './Components/auth/Login/Index';
 import store from './redux/store'
 import Intro from './Components/Inro/introcontainer'
 import ProductShowcase from './Components/productslist/ProductShowcase';
@@ -14,6 +14,9 @@ import Home from './pages/Home/index'
 import Products from './pages/Products/index';
 import Notfound from './pages/Notfound/Notfound';
 import Shoppingbasket from './pages/Shoppingbasket/ShoppingBasket';
+import PrivateRoute from './navigation/PrivateRoute';
+import Profile from './pages/profile/Profile';
+
 
 const App = () => {
 
@@ -52,9 +55,11 @@ const App = () => {
 
           <Route path='/onlineshop-nini/Home' element={<Home />} />
 
+          <Route path="/onlineshop-nini/profile" element={<Profile />} />
+
           <Route path="/onlineshop-nini/Products" element={<Products />} />
 
-          <Route path="/onlineshop-nini/Shoppingbasket" element={<Shoppingbasket />} />
+          <Route path="/onlineshop-nini/Shoppingbasket" element={<PrivateRoute><Shoppingbasket /></PrivateRoute>} />
 
           <Route path="/onlineshop-nini/*" element={<Notfound />} />
 

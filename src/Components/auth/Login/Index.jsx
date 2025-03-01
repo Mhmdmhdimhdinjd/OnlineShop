@@ -1,15 +1,21 @@
 import { Box, Grid, Button, InputLabel, createTheme, ThemeProvider, Typography } from "@mui/material";
 import React, { useRef } from "react";
-import loginimg from '../../assets/images/login.jpg';
+import loginimg from '../../../assets/images/login.jpg';
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import { object, string } from 'yup';
 import { useDispatch } from "react-redux";
-import LoginQuery__handler from "../../ReactQuery/LoginComponent"
+import LoginQuery__handler from "../../../ReactQuery/LoginComponent"
+import { useNavigate } from "react-router-dom";
+import { loginUser } from '/src/redux/reducers/AuthSlice';
+
 
 const LoginComponent = () => {
 
-    // const loged = useRef(false)
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const storedUser = JSON.parse(localStorage.getItem('user'));
 
     const { mutate, isLoading } = LoginQuery__handler()
 
@@ -18,8 +24,16 @@ const LoginComponent = () => {
 
         mutate(data, {
             onSuccess: (Reference) => {
-                if (Reference.status === 200) {
-                    console.log('ُLogin successed')
+                if (Reference.status === 201) {
+                    console.log('ُLogin successed by backend')
+                    if (storedUser.username === data.username && storedUser.password === data.password) {
+                        dispatch(loginUser(storedUser));
+                        let redirectPath = localStorage.getItem('userredirect');
+                        navigate(redirectPath || '/onlineshop-nini')
+                    } else {
+                        console.log('نام کاربری یا رمز عبور نادرست است');
+                    }
+                    reset()
                 }
             },
         })
@@ -50,16 +64,16 @@ const LoginComponent = () => {
     });
 
     let userSchema = object({
-        address: string().required('ورود این مقادیر الزامیست'),
-        email: string().required('ورود این مقادیر الزامیست').email('مقدار ورودی نادرست است'),
+        username: string().required('ورود این مقادیر الزامیست'),
+        password: string().required('ورود این مقادیر الزامیست')
     });
 
 
-    const { handleSubmit, control, formState: { errors } } = useForm({
+    const { handleSubmit, control,reset, formState: { errors } } = useForm({
         resolver: yupResolver(userSchema),
         defaultValues: {
-            email: "",
-            address: ""
+            username: "",
+            password: ""
         }
     });
 
@@ -75,7 +89,7 @@ const LoginComponent = () => {
                         <form style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }} onSubmit={handleSubmit(Submited)}>
                             <InputLabel>ایمیل</InputLabel>
                             <Controller
-                                name="email"
+                                name="username"
                                 control={control}
                                 render={({ field }) =>
                                     <input disabled={isLoading} className="login__input" {...field} label="email" variant="outlined" />
@@ -84,7 +98,7 @@ const LoginComponent = () => {
                             {errors.email && <Typography fontFamily={'gandom'} fontSize={12} color="black">{errors.email.message}</Typography>}
                             <InputLabel>رمز عبور</InputLabel>
                             <Controller
-                                name="address"
+                                name="password"
                                 control={control}
                                 render={({ field }) =>
                                     <input type="password" disabled={isLoading} className="login__input" {...field} label="address" variant="outlined" />

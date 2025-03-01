@@ -1,11 +1,11 @@
 import axios from "axios"
 import { useMutation } from "react-query"
 
-function LoginQuery__handler ()  {
+function SignupHndler ()  {
 
 
     const { mutate ,isLoading } = useMutation({
-        mutationKey:'login',
+        mutationKey:'SignUp',
         mutationFn:(data) =>{
             return axios.post('https://jsonplaceholder.typicode.com/users', data)
         },
@@ -16,4 +16,4 @@ function LoginQuery__handler ()  {
     return {mutate , isLoading} 
 }
 
-export default LoginQuery__handler
+export default SignupHndler
